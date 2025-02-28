@@ -1,11 +1,17 @@
 import stats
+import sys
 from stats import get_num_words
 from stats import get_book_text
 from stats import get_num_letters
 from stats import character_count_report
 
 def main():
-    book_path = "/home/mostefail/boot.dev/bookbot/bookbot/books/frankenstein.txt"
+
+    if len(sys.argv) != 2 :     # check number of provided arguments on call
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)             
+    
+    book_path = sys.argv[1]
     num_words = 0
     num_letters = {}
 
@@ -21,4 +27,6 @@ def main():
 
 
 main()
+
+
 
